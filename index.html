@@ -1,0 +1,75 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+      <h2>{{person.name}}</h2>
+      <h2>{{person.name}} -- {{person.age}}</h2>
+      <h3>{{person.fav}}</h3>
+      <ul>
+          <li>1</li>
+          <li>2</li>
+          <li>3</li>
+      </ul>
+      <h3>{{msg}}</h3>
+      <div v-text="msg"></div>
+      <div v-html="htmlStr"></div>
+      <div v-html="htmlStr"></div>
+      <div v-html="htmlStr"></div>
+      <div v-html="htmlStr"></div>
+      <div v-html="htmlStr"></div>
+      <input type="text" v-model="msg"/>
+      <input type="text" v-model="person.fav"/>
+      <button v-on:click="handleClick">on</button>
+      <button @click="handleClick">@点击</button>
+  </div>
+  <script type="text/javascript" src="./Observer.js"></script>
+  <script type="text/javascript" src="MVue.js"></script>
+  <script>
+      const vm = new MVue({
+          el:"#app",
+          data:{
+              person:{
+                  name:'动感超人',
+                  age:8888,
+                  fav:"吃酸梅",
+                  biubiu:{
+                      a:10,
+                      b:20,
+                  }
+              },
+              msg:"欢迎语来到动感超人世界",
+              htmlStr:"htmlStr内容"
+          },
+          methods:{
+              handleClick(){
+                  console.log(this)
+                  //this.$data.person.name = "动感超人(改)";
+                  this.person.name = "动感超人(改)"
+              }
+          }
+      })
+  </script>
+<!-- <script type="text/javascript" src="vue.min.js"></script> -->
+<!-- <script> -->
+<!--     //const vm = new Vue({ -->
+<!--     //    el:"#app", -->
+<!--     //    data:()=>{ -->
+<!--     //        return { -->
+<!--     //            person:{ -->
+<!--     //                name:'动感超人', -->
+<!--     //                age:8888, -->
+<!--     //                fav:"吃酸梅" -->
+<!--     //            }, -->
+<!--     //            msg:"欢迎语来到动感超人世界", -->
+<!--     //            htmlStr:"htmlStr内容" -->
+<!--     //        } -->
+<!--     //    } -->
+<!--     //}); -->
+<!-- </script> -->
+</body>
+</html>
