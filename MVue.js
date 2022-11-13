@@ -12,7 +12,7 @@ const compileUtil = {
                     //this.updaterFn.textUpdater(node,newVal);//将会导致整个被替换
                     this.updaterFn.textUpdater(node,this.getContentValue(expr,vm));
                 })
-                //获取到了匹配的分组
+                //获取到了匹配的分组,则使用当前找到到的值去替换{{xxx}}
                 return this.getValue(group,vm.$data);
             })
         }else{
@@ -84,7 +84,7 @@ const compileUtil = {
     getContentValue(expr,vm){
         const reg = /\{{2}(.+?)\}{2}/gi;
         return expr.replace(reg,(_,group)=>{
-            //获取到了匹配的分组
+            //获取到了匹配的分组,则使用当前找到到的值去替换{{xxx}}
             return this.getValue(group,vm.$data);
         })
     }
